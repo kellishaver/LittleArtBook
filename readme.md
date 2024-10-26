@@ -27,7 +27,7 @@ If you wish to maintain the current aspect ratio, it's: `2(maxHeight x 0.625) = 
 
 The aspect ratio for of your images would then simply be `(imgHeight x 0.625) = imgWidth`.
 
-There's no reason you can't change this ratio if you want to.
+There's no reason you can't change this ratio in the CSS to accommodate different images if you want to.
 
 Please note, you must have an even number of images or your back cover will not display. This is not a bug - it's how books work.
 
