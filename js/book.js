@@ -15,7 +15,8 @@ class Book {
       </div>
     `;
     
-    this.init();
+    this.showLoading();
+    this.preloadImages();
   }
 
   createBookElement() {
@@ -28,6 +29,44 @@ class Book {
     const div = document.createElement('div');
     div.innerHTML = template.trim();
     return div.firstChild;
+  }
+
+  showLoading() {
+    const loader = document.createElement('div');
+    loader.className = 'book-loader';
+    loader.innerHTML = 'Loading...';
+    this.container.appendChild(loader);
+  }
+
+  preloadImages() {
+    let loadedImages = 0;
+    const totalImages = this.images.length;
+    const loadedImageUrls = [];
+
+    this.images.forEach(src => {
+      const img = new Image();
+      
+      img.onload = () => {
+        loadedImages++;
+        loadedImageUrls.push(src);
+        
+        if (loadedImages === totalImages) {
+          this.container.querySelector('.book-loader').remove();
+          this.init();
+        }
+      };
+
+      img.onerror = () => {
+        console.error(`Failed to load image: ${src}`);
+        loadedImages++;
+        if (loadedImages === totalImages) {
+          this.container.querySelector('.book-loader').remove();
+          this.init();
+        }
+      };
+
+      img.src = src;
+    });
   }
 
   init() {
