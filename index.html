@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="./css/page.css" />
+    <link rel="stylesheet" href="./css/book.css" />
+  </head>
+
+  <body translate="no">
+    <div id="container"></div>
+    <script type="text/javascript" src="./js/book.js"></script>
+    <script>
+      const images = [
+        "https://placehold.co/250x400/470/fff?text=Front",
+        "https://placehold.co/250x400/fff/333?text=Page+1",
+        "https://placehold.co/250x400/fff/333?text=Page+2",
+        "https://placehold.co/250x400/fff/333?text=Page+3",
+        "https://placehold.co/250x400/fff/333?text=Page+4",
+        "https://placehold.co/250x400/fff/333?text=Page+5",
+        "https://placehold.co/250x400/fff/333?text=Page+6",
+        "https://placehold.co/250x400/470/fff?text=Back"
+      ];
+
+      const book = new Book(images, document.getElementById('container'));
+    </script>
+  </body>
+</html>
